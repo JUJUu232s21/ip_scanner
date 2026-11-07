@@ -7,13 +7,11 @@ public class GetUserIpModern {
     public static void main(String[] args) {
         try {
             HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://ipify.org")).build();
+            HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://api.ipify.org")).build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
             System.out.println("Ваш текущий IP-адрес: " + response.body());
         } catch (Exception e) {
-            System.err.println("Ошибка при получении IP: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
+          System.err.println("Ошибка при получении IP: " + e.getMessage());
+          e.printStackTrace();
+     }
 }
